@@ -1,16 +1,14 @@
- // Get the current date
+
  const currentDate = new Date();
  const currentDay = currentDate.getDate();
-
- // Get the calendar container
  const calendarContainer = document.getElementById('calendar');
 
- // Dynamically generate the calendar with dynamic classes
+ // generate div elements cuz writing is for nerds
  for (let i = 1; i <= 24; i++) {
    const dayContainer = document.createElement('div');
    dayContainer.classList.add('day');
    
-   // Check if the day is past or future
+   // checking if the time matches up
    if (i < currentDay) {
      dayContainer.classList.add('inactive');
      dayContainer.addEventListener('click', () => openDoor(i));
@@ -30,18 +28,15 @@
      <h2>${i}</h2>
      <p> ${customMessages[i - 1]} </p>
    `;
-
-   // Append the day container to the calendar
    calendarContainer.appendChild(dayContainer);
  }
 
- // Function to simulate opening the door for past days
 // function openDoor(day) {  alert(`${day}`); }
  function openDoor(day) {
     modal.style.display = "block";
  }
 
- // Function to show a locked message for future days
+ // locked message for naughty children
  function showLockedMessage() {
    alert("Eikö ole kärsivällisyyttä?");
  }
